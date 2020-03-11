@@ -1,0 +1,71 @@
+<p>employee works!</p>
+
+import { FormsModule }   from '@angular/forms';
+
+@NgModule({
+  imports: [
+             BrowserModule,
+
+             FormsModule
+           ],
+
+            <form #form="ngForm">
+            <div class="container">
+            <div class="form-group">
+            <label for="fname">First Name: </label><br>
+            <input type="text" id="fname" name="fname" [(ngModel)]='emp.firstName'>
+            </div>
+            <div class="form-group">
+            <label for="lname">Last Name: </label><br>
+            <input type="text" id="lname" name="lname" [(ngModel)]='emp.lastName'>
+            </div>
+            <div class="form-group">
+            <label for="email">Email: </label><br>
+            <input type="email" id="email" name="email" [(ngModel)]='emp.email'>
+            </div>
+            <div class="form-group">
+            <label for="cno">Contact Number:</label><br>
+            <input type="number" id="cno" name="cno" [(ngModel)]='emp.contactNumber'>
+            </div>
+            <div class="form-group">
+            <label for="addr">Address:</label><br>
+            <textarea name="address" id="addr" rows="2" cols="17" [(ngModel)]='emp.address'></textarea>
+            </div>
+            <div class="form-group">
+            <label for="uname">Username:</label><br>
+            <input type="text" id="uname" name="uname" [(ngModel)]='emp.userName'>
+            </div>
+            <div class="form-group">
+            <label for="pass">Password:</label><br>
+            <input type="password" id="pass" name="pass" [(ngModel)]='emp.password'>
+              </div>
+
+            Gender:<br>
+            <div class="form-group">
+            <input type="radio" id="male" name="gender" value="male"[(ngModel)]='emp.gender'>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female" [(ngModel)]='emp.gender'>
+            <label for="female">Female</label>
+            </div>
+
+            <label for="qual">Qualification:</label><br>
+            <select id="qual" name="qual" [(ngModel)]='emp.qualification'>
+              <option [value]='qual' *ngFor='let qual of quals'>{{qual}}</option>
+            </select><br><br>
+
+            <label for="exp">Experience:</label><br>
+            <select id="exp" name="exp" [(ngModel)]='emp.experience'>
+              <option [value]='exp' *ngFor='let exp of exps'>{{exp}}</option>
+            </select><br><br>
+
+            Coding Languages:<br>
+            <div *ngFor='let lang of langs'>
+            <input type="checkbox"  [value]='lang' [id]='lang' name="codel" [(ngModel)]='emp.codingLanguages[lang]'/>
+            <label>{{lang}}</label>
+            </div>
+
+            <input type="submit" value="Submit" (click)='display()'>
+            </div>
+          </form>
+
+})
